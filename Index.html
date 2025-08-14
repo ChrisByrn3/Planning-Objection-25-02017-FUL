@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Planning Objection – Chester Road, Sandiway</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; line-height: 1.6; }
+  
+  /* Unified styling for all input and textarea fields */
+  input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;       /* Matches textarea padding */
+    font-size: 18px;     /* Matches textarea font size */
+    box-sizing: border-box;
+  }
+
+  button { 
+    background: #c62828; 
+    color: white; 
+    padding: 20px 30px;  /* Increased size */
+    font-size: 22px;     /* Increased font size */
+    border: none; 
+    cursor: pointer; 
+    width: 100%;         /* Optional: full width for emphasis */
+  }
+  button:hover { background: #a91414; }
+
+  .instructions { 
+    background: #fff4e5; 
+    border: 1px solid #f0ad4e; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+  }
+  .instructions strong { color: #a65b00; }
+</style>
+</head>
+<body>
+
+<h1>Formal Objection to Planning Application 25/02017/FUL</h1>
+
+<div class="instructions">
+  <strong>Important – Please Read Before Sending:</strong>
+  <ol>
+    <li>This form opens your email program with the objection letter already filled in. 
+
+You can add, edit, or remove anything in the email before sending.
+
+ The email will be sent from <em>your own email address</em> so the council counts it as an individual objection.</li>
+    <li>If you use Gmail, Outlook.com, Yahoo, or another webmail service, you need to set it as your <strong>default email handler</strong> first:
+      <ul>
+        <li><strong>Gmail in Chrome:</strong> Open Gmail, click the lock icon 🔒 or site info icon in the address bar, find “Site settings” → “Handlers” → allow mail.google.com to handle email links.</li>
+        <li><strong>Outlook.com in Edge/Chrome:</strong> Sign in to Outlook.com, then in browser settings enable it as your default mail handler.</li>
+      </ul>
+    </li>
+    <li>If nothing happens when you click “Send Objection”, it means no email handler is set up. Please copy the objection letter manually into your own email and send to: <br>
+    <code>planning@cheshirewestandchester.gov.uk, gillian.edwards@cheshirewestandchester.gov.uk, aphra.brandreth.mp@parliament.uk, phil.rimmer@cheshirewestandchester.gov.uk, Clerk@cuddingtonparish.gov.uk</code></li>
+  </ol>
+</div>
+
+<p>Please complete your details below and click "Send Objection".</p>
+
+<p>Your Full Name:</p>
+<input type="text" id="name" placeholder="Enter your full name">
+
+<p>Your Address:</p>
+<textarea id="address" placeholder="Enter your full postal address"></textarea>
+
+<p>Your Email Address:</p>
+<input type="email" id="email" placeholder="Enter your email address">
+
+<button onclick="sendEmail()">Send Objection</button>
+
+<script>
+function sendEmail() {
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!name || !address || !email) {
+        alert("Please fill in all your details before sending.");
+        return;
+    }
+
+    const recipients = [
+        "planning@cheshirewestandchester.gov.uk",
+        "gillian.edwards@cheshirewestandchester.gov.uk",
+        "aphra.brandreth.mp@parliament.uk",
+        "phil.rimmer@cheshirewestandchester.gov.uk",
+        "Clerk@cuddingtonparish.gov.uk"
+    ].join(",");
+
+    const subject = "Formal Objection to Planning Application 25/02017/FUL";
+
+    const body = 
+`Dear Sir/Madam,
+
+Please accept this as my formal objection to Planning Application 25/02017/FUL.
+
+Name: ${name}
+Address: ${address}
+Email: ${email}
+
+
+
+This proposal would breach the defined settlement boundary and significantly increase the risk of future applications on neighbouring plots. The result would be unchecked development creep, contrary to both national and local planning objectives.
+
+
+13. Precedent and Planning History
+
+• In 2019, a 66-bed care home proposal for a similar site on the outskirts of the village was refused due to harm to countryside character and conflict with the CSNP.
+
+• CWAC has rejected similar speculative development proposals nearby, reinforcing the inappropriateness of this location.
+
+• Approving this application would undermine consistent decision-making and set a precedent for further unsustainable development beyond the village boundary.
+
+14. Conclusion
+
+This application is incompatible with the strategic aims of the Cuddington and Sandiway Neighbourhood Plan, the CWAC Local Plan, and numerous provisions in the National Planning Policy Framework (Dec 2024). 
+
+It poses clear risks to environmental quality, transport safety, biodiversity, and healthcare infrastructure.
+
+I respectfully urge the Council to reject planning application 25/02017/FUL in its current form.
+
+I would appreciate acknowledgement of receipt of this email.`;
+
+    const mailtoLink = `mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+}
+</script>
+
+</body>
+</html>
